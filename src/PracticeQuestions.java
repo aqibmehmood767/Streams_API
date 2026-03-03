@@ -1,7 +1,4 @@
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class PracticeQuestions {
     static void main() {
@@ -43,7 +40,17 @@ public class PracticeQuestions {
 
 
         //Find the maximum number
-//        Optional<?> list7 = numbers.stream().(Integer::compare);
-//        System.out.println(list7);
+        Optional<?> list7 = numbers.stream().max(Integer::compare);
+        System.out.println(list7);
+
+
+        //Calculate average of numbers
+        OptionalDouble average = numbers.stream().mapToInt(Integer::intValue).average();
+        System.out.println(average);
+
+
+        //Check if any number is greater than 8
+        Boolean check = numbers.stream().anyMatch(i->i>8);
+        System.out.println(check);
     }
 }
