@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class PracticeQuestions {
     static void main() {
@@ -52,5 +53,41 @@ public class PracticeQuestions {
         //Check if any number is greater than 8
         Boolean check = numbers.stream().anyMatch(i->i>8);
         System.out.println(check);
+
+
+        //                  List of Strings
+
+        List<String> names = List.of("Ali", "Ahmed", "Aqib", "Sara", "Amna", "Bilal");
+
+        //Convert all names to uppercase
+        List<String> list8 = names.stream().map(String::toUpperCase).toList();
+        System.out.println(list8);
+
+
+        //Get names starting with letter "A"
+        List<String> list9 = names.stream().filter(i-> i.startsWith("A")).toList();
+        System.out.println(list9);
+
+
+        //Count names whose length is greater than 4
+        List<String> list10 = names.stream().filter(i-> i.length()>4).toList();
+        System.out.println(list10);
+
+
+        //Sort names alphabetically
+        List<String> list11 = names.stream().sorted().toList();
+        System.out.println(list11);
+
+
+        //Sort names by length
+        List<String> list12 = names.stream().sorted(Comparator.comparing(String::length).reversed()).toList();
+        System.out.println(list12);
+
+
+        //Get first name starting with "S"
+        String list13 = names.stream().filter(i->i.startsWith("S")).findFirst().toString();
+        System.out.println(list13);
+
+
     }
 }
